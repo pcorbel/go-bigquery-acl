@@ -1,0 +1,29 @@
+---
+project: your-project-id
+
+datasets:
+  - name: your-dataset-id
+    owner:
+      group_by_email:
+        - group.owner@company.com
+      user_by_email:
+        - user.owner@company.com
+      special_group:
+        - projectOwners
+    writer:
+      group_by_email:
+        - group.writer@company.com
+      user_by_email:
+        - user.writer@company.com
+      special_group:
+        - projectWriters
+    reader:
+      group_by_email:
+        - group.reader@company.com
+      user_by_email:
+        - user.reader@company.com
+      special_group:
+        - projectReaders
+    view:
+      - dataset_id: a-dataset-id
+        view_id: authorized-view-id
