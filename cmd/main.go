@@ -22,7 +22,7 @@ var (
 func init() {
 
 	// Parse flags
-	flag.StringVar(&confPath, "conf", "config/config.yaml", "The path of the configuration file")
+	flag.StringVar(&confPath, "conf", "configs/config.yaml", "The path of the configuration file")
 	flag.Parse()
 
 	// Print information on current update
@@ -35,8 +35,9 @@ func init() {
 	currentUser, err := user.Current()
 	if err != nil {
 		fmt.Println(errors.Wrap(err, "cannot get current user"), "red")
+	} else {
+		fmt.Println(fmt.Sprintf("  Author:               %s", currentUser.Username))
 	}
-	fmt.Println(fmt.Sprintf("  Author:               %s", currentUser.Username))
 
 	// Print GCP credentials file
 	credEnv, ok := os.LookupEnv("GOOGLE_APPLICATION_CREDENTIALS")
@@ -47,6 +48,7 @@ func init() {
 	}
 
 	// Print configuration file
+
 	if confPath == "config.yaml" {
 		dir, err := os.Getwd()
 		if err != nil {
