@@ -3,6 +3,16 @@
 go-bigquery-acl lets you use a [YAML](http://yaml.org/) configuration file to
 automatically apply Access Control List (ACL) on [BigQuery](https://cloud.google.com/bigquery/) datasets.
 
+## Run via docker
+
+```
+docker run \
+       --rm \
+       -v "/path/to/your/application_default_credentials.json:/tmp/application_default_credentials.json:ro" \
+       -v "/path/to/your/config.yaml:/app/configs/config.yaml:ro" \
+       pcorbel/go-bigquery-acl:latest
+```
+
 ## Install
 
 ```
